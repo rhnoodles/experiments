@@ -127,7 +127,8 @@ hand32@node0:~/cuda-samples-12.1/Samples/0_Introduction/vectorAdd$ sudo echo "40
 40
 hand32@node0:~/cuda-samples-12.1/Samples/0_Introduction/vectorAdd$ cat /sys/kernel/mm/hugepages/hugepages-1048576kB/free_hugepages
 40
-
+hand32@node0:~/cuda-samples-12.1/Samples/0_Introduction/vectorAdd$ echo $CUDA_VISIBLE_DEVICES
+0
 hand32@node0:~/cuda-samples-12.1/Samples/0_Introduction/vectorAdd$ nsys nvprof --print-gpu-trace ./vectorAdd
 WARNING: vectorAdd and any of its children processes will be profiled.
 
@@ -137,72 +138,22 @@ CUDA kernel launch with 6250000 blocks of 256 threads
 Copy output data from the CUDA device to the host memory
 Test PASSED
 Done
-Generating '/tmp/nsys-report-7fdd.qdstrm'
-[1/3] [========================100%] report8.nsys-rep
-[2/3] [========================100%] report8.sqlite
+Generating '/tmp/nsys-report-bbdf.qdstrm'
+[1/3] [========================100%] report15.nsys-rep
+[2/3] [========================100%] report15.sqlite
 [3/3] Executing 'cuda_gpu_trace' stats report
 
    Start (ns)    Duration (ns)  CorrId    GrdX     GrdY  GrdZ  BlkX  BlkY  BlkZ  Reg/Trd  StcSMem (MB)  DymSMem (MB)  Bytes (MB)  Throughput (MBps)  SrcMemKd  DstMemKd           Device            Ctx  Strm                                   Name
  --------------  -------------  ------  ---------  ----  ----  ----  ----  ----  -------  ------------  ------------  ----------  -----------------  --------  --------  -------------------------  ---  ----  -----------------------------------------------------------------------
- 35,587,935,068  1,348,275,068     122                                                                                12,800.000              0.000  Pageable  Device    NVIDIA A100-SXM4-40GB (0)    1     7  [CUDA memcpy HtoD]
- 36,936,277,975    761,202,550     123                                                                                12,800.000         12,800.000  Pageable  Device    NVIDIA A100-SXM4-40GB (0)    1     7  [CUDA memcpy HtoD]
- 37,697,503,501     28,267,724     124  6,250,000     1     1   256     1     1       16         0.000         0.000                                                     NVIDIA A100-SXM4-40GB (0)    1     7  vectorAdd(const double *, const double *, double *, unsigned long long)
- 37,725,776,025  1,876,127,055     126                                                                                12,800.000              0.000  Device    Pageable  NVIDIA A100-SXM4-40GB (0)    1     7  [CUDA memcpy DtoH]
-
-Generated:
-    /users/hand32/cuda-samples-12.1/Samples/0_Introduction/vectorAdd/report8.nsys-rep
-    /users/hand32/cuda-samples-12.1/Samples/0_Introduction/vectorAdd/report8.sqlite
-hand32@node0:~/cuda-samples-12.1/Samples/0_Introduction/vectorAdd$ nsys nvprof --print-gpu-trace ./vectorAdd
-WARNING: vectorAdd and any of its children processes will be profiled.
-
-[Vector addition of 1600000000 elements, each vector has size 12207 MB]
-Copy input data from the host memory to the CUDA device
-CUDA kernel launch with 6250000 blocks of 256 threads
-Copy output data from the CUDA device to the host memory
-Test PASSED
-Done
-Generating '/tmp/nsys-report-0150.qdstrm'
-[1/3] [========================100%] report9.nsys-rep
-[2/3] [========================100%] report9.sqlite
-[3/3] Executing 'cuda_gpu_trace' stats report
-
-   Start (ns)    Duration (ns)  CorrId    GrdX     GrdY  GrdZ  BlkX  BlkY  BlkZ  Reg/Trd  StcSMem (MB)  DymSMem (MB)  Bytes (MB)  Throughput (MBps)  SrcMemKd  DstMemKd           Device            Ctx  Strm                                   Name
- --------------  -------------  ------  ---------  ----  ----  ----  ----  ----  -------  ------------  ------------  ----------  -----------------  --------  --------  -------------------------  ---  ----  -----------------------------------------------------------------------
- 35,581,858,786    813,823,358     122                                                                                12,800.000         12,800.000  Pageable  Device    NVIDIA A100-SXM4-40GB (0)    1     7  [CUDA memcpy HtoD]
- 36,395,754,943    729,843,281     123                                                                                12,800.000         12,800.000  Pageable  Device    NVIDIA A100-SXM4-40GB (0)    1     7  [CUDA memcpy HtoD]
- 37,125,624,592     28,272,076     124  6,250,000     1     1   256     1     1       16         0.000         0.000                                                     NVIDIA A100-SXM4-40GB (0)    1     7  vectorAdd(const double *, const double *, double *, unsigned long long)
- 37,153,903,836  1,877,375,866     126                                                                                12,800.000              0.000  Device    Pageable  NVIDIA A100-SXM4-40GB (0)    1     7  [CUDA memcpy DtoH]
-
-Generated:
-    /users/hand32/cuda-samples-12.1/Samples/0_Introduction/vectorAdd/report9.nsys-rep
-    /users/hand32/cuda-samples-12.1/Samples/0_Introduction/vectorAdd/report9.sqlite
-hand32@node0:~/cuda-samples-12.1/Samples/0_Introduction/vectorAdd$ nsys nvprof --print-gpu-trace ./vectorAdd
-WARNING: vectorAdd and any of its children processes will be profiled.
-
-[Vector addition of 1600000000 elements, each vector has size 12207 MB]
-Copy input data from the host memory to the CUDA device
-CUDA kernel launch with 6250000 blocks of 256 threads
-Copy output data from the CUDA device to the host memory
-Test PASSED
-Done
-Generating '/tmp/nsys-report-1032.qdstrm'
-[1/3] [========================100%] report10.nsys-rep
-[2/3] [========================100%] report10.sqlite
-[3/3] Executing 'cuda_gpu_trace' stats report
-
-   Start (ns)    Duration (ns)  CorrId    GrdX     GrdY  GrdZ  BlkX  BlkY  BlkZ  Reg/Trd  StcSMem (MB)  DymSMem (MB)  Bytes (MB)  Throughput (MBps)  SrcMemKd  DstMemKd           Device            Ctx  Strm                                   Name
- --------------  -------------  ------  ---------  ----  ----  ----  ----  ----  -------  ------------  ------------  ----------  -----------------  --------  --------  -------------------------  ---  ----  -----------------------------------------------------------------------
- 35,584,547,582  1,182,800,131     122                                                                                12,800.000              0.000  Pageable  Device    NVIDIA A100-SXM4-40GB (0)    1     7  [CUDA memcpy HtoD]
- 36,767,415,808    773,037,412     123                                                                                12,800.000         12,800.000  Pageable  Device    NVIDIA A100-SXM4-40GB (0)    1     7  [CUDA memcpy HtoD]
- 37,540,476,868     28,266,360     124  6,250,000     1     1   256     1     1       16         0.000         0.000                                                     NVIDIA A100-SXM4-40GB (0)    1     7  vectorAdd(const double *, const double *, double *, unsigned long long)
- 37,568,749,308  1,866,420,461     126                                                                                12,800.000              0.000  Device    Pageable  NVIDIA A100-SXM4-40GB (0)    1     7  [CUDA memcpy DtoH]
-
+ 35,999,976,992    739,459,189     122                                                                                12,800.000         12,800.000  Pageable  Device    NVIDIA A100-SXM4-40GB (0)    1     7  [CUDA memcpy HtoD]
+ 36,739,502,164    761,340,554     123                                                                                12,800.000         12,800.000  Pageable  Device    NVIDIA A100-SXM4-40GB (0)    1     7  [CUDA memcpy HtoD]
+ 37,500,859,870     28,262,996     124  6,250,000     1     1   256     1     1       16         0.000         0.000                                                     NVIDIA A100-SXM4-40GB (0)    1     7  vectorAdd(const double *, const double *, double *, unsigned long long)
+ 37,529,130,193  1,824,092,654     126
 ```
 
 ### Try exporting to different GPUs but still use 1 GB page
 ```
-hand32@node0:~/cuda-samples-12.1/Samples/0_Introduction/vectorAdd$ echo $CUDA_VISIBLE_DEVICES
-0
+
 hand32@node0:~/cuda-samples-12.1/Samples/0_Introduction/vectorAdd$ export CUDA_VISIBLE_DEVICES=1
 hand32@node0:~/cuda-samples-12.1/Samples/0_Introduction/vectorAdd$ nsys nvprof --print-gpu-trace ./vectorAdd
 WARNING: vectorAdd and any of its children processes will be profiled.

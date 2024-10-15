@@ -1,6 +1,8 @@
 ## d8545 Hardware Info
 
 ```
+hand32@node0:~/experiments/hugepages/cloudlab/d8545$ uname -a
+Linux node0.hand32-223794.bayopsys-pg0.wisc.cloudlab.us 6.2.0-1015-nvidia #15-Ubuntu SMP PREEMPT_DYNAMIC Wed Jan 17 16:25:21 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 hand32@node0:~/experiments/hugepages/cloudlab/d8545$ nvidia-smi
 Tue Oct 15 16:16:12 2024
 +---------------------------------------------------------------------------------------+

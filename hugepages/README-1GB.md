@@ -102,3 +102,9 @@ Generating '/tmp/nsys-report-2e9a.qdstrm'
  67,166,952,938     28,251,136     124  6,250,000     1     1   256     1     1       16         0.000         0.000                                                     NVIDIA A100-SXM4-40GB (0)    1     7  vectorAdd(const double *, const double *, double *, unsigned long long)
  67,195,207,690  2,738,976,118     126
 ```
+
+
+### Analysis
+I modified vectorAdd to use unsigned long long int  so that each vector is now ~ 12 GB , so the total allocation is 36 GB  From the profiler, I see that going from using 4KB to 2 MB pages improves the HostToDevice memory copy by 2.23X but the DeviceToHost improved only by 1.09X. However, if I then use the 1 GB pages, the HostToDevice improves by 2.34X and the also DeviceToHost improves by 2X.
+
+These are all relative to the 4KB page case.

@@ -33,8 +33,8 @@ function run {
 		echo "🔵🔵🔵 NUMA-$n 🔵🔵🔵"
 	    fi
 
-	    echo "     RUN 10 ITERATIONS"
-	    for i in `seq 0 1 9`; do
+	    echo "     RUN 5 ITERATIONS"
+	    for i in `seq 0 1 4`; do
 		echo "      iteration $i"
 		nsys nvprof --print-gpu-trace ./vectorAdd > vaddProf.CUDA-$c.NUMA-$n.ITER-$i.log
 		sleep 15
